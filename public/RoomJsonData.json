@@ -1,0 +1,113 @@
+[
+ {
+  "roomImg" : "https://i.ibb.co/HP3vtq5/dining-2.jpg",
+  "detail":
+  {
+    "descr": "Urban Sophistication, Rural Tranquility: Retreat to Our Chic Urban Room, Where Modern Design and Peaceful Surroundings Merge for a Perfect Escape.",
+    "pricePerNight": "$90",
+    "roomSize": "500sq feet",
+    "availability": "currently unavailable",
+    "specialOffers": {
+       "offer1": "Free city tour with local guide",
+       "offer2": "Special weekend rates available"
+    },
+    "promoCode": "HAPPY23",
+    "discount": "15% off for early bird bookings"
+   },
+   
+  "title": "Chic Urban Retreat",
+  "button": "Book Now"
+ },
+ {
+  "roomImg":"https://i.ibb.co/MCfY17C/bed.jpg",
+  "detail":
+  {
+    "descr": "Love is in the Air: Rekindle Romance in Our Romantic Hideaway, Where Intimate Ambiance, Jacuzzi Bath, and Candlelite Dinners Await",
+    "pricePerNight": "$80",
+    "roomSize": "300sq feet",
+    "availability": "Available",
+    "specialOffers": {
+       "offer1": "Romantic dinner for two and a bottle of wine included",
+       "offer2": "special honeymoon packages"
+    },
+    "promoCode": "HONEYMOON",
+    "discount": "10% off"
+   },
+  "title": "Romantic Hideaway",
+  "button": "Book Now"
+ },
+ {
+  "roomImg" :"https://i.ibb.co/LZkkKb7/dining-1.jpg",
+  "detail":
+  {
+    "descr": "Seamless Work-Life Balance: Experience Productivity and Relaxation in Our Executive Business Room, Where High-Tech Convenience Meets Ultimate Comfort",
+    "pricePerNight": "$100",
+    "roomSize": "400sq feet",
+    "availability": "Available",
+    "specialOffers": {
+       "offer1": "Complimentary airport transfer and Wi-Fi",
+       "offer2": "15% off for corporate bookings (proof of employment required)"
+    },
+    "promoCode": "BUSINESS",
+    "discount": "get more 5% off"
+   },
+  "title": "Executive Business Room",
+  "button": "Book Now"
+ },
+ {
+  "roomImg" :"https://i.ibb.co/D1HH90J/2BedRoom.jpg",
+  
+  "title": "Family Friendly Suite",
+  "detail": {
+    "descr": "Seamless Work-Life Balance: Experience Productivity and Relaxation in Our Executive Business Room, Where High-Tech Convenience Meets Ultimate Comfort",
+    "pricePerNight": "$800",
+    "roomSize": "500sq feet",
+    "availability": "Available",
+    "specialOffers": {
+       "offer1": "Kids stay and eat free!",
+       "offer2": "20% off for advance group bookings (minimum 3 rooms)"
+    },
+    "promoCode": "BUSINESS"
+    
+   },
+  "button": "Book Now"
+ },
+ {
+  "roomImg" :"https://i.ibb.co/BGkhMQz/dining-3.jpg",
+  "detail" :
+
+  {
+   "descr": "Soothing Waves, Serene Stay: Unwind in Our Ocean View Room, Where Breathtaking Views and Tranquility Await at Every Turn.",
+   "pricePerNight": "$100",
+   "roomSize": "400sq feet",
+   "availability": "currently unavailable",
+   "specialOffers": {
+      "offer1": "Complimentary breakfast for your entire stay",
+      "offer2": "10% off for extended stays (5 nights or more)"
+   },
+   "promoCode": "3HAPPY23",
+   "discount": "Get more 20% off"
+  },
+  
+   "title": "Ocean View Room",
+   "button": "Book Now"
+ },
+ {
+  "roomImg" :"https://i.ibb.co/Vjx8V3s/dining-4.jpg",
+  "detail": 
+  {
+    "descr": "Elegance Redefined: Immerse Yourself in Opulence and Panoramic Views from Our Deluxe Suite, Where Luxury Meets Spectacular Comfort.",
+    "pricePerNight": "$120",
+    "roomSize": "400sq feet",
+    "availability": "Available",
+    "specialOffers": {
+       "offer1": "Book 3 nights, get 1 night free",
+       "offer2": "15% off for early bird bookings"
+    },
+    "promoCode": "EMTGO"
+    
+   },
+  "title": " Deluxe Suite",
+  "button": "Book Now"
+ }
+]
