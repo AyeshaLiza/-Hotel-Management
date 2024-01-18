@@ -9,7 +9,7 @@ const MyBooking = () => {
   // const { myBooking } = useBooking()
 const { user } = useContext(AuthContext)
 const url = `http://localhost:5000/api/v1/roomBookings?email=${user?.email}`
-const [bookings, setBookings] = useState()     ||  []
+const [bookings, setBookings] = useState([])     
 useEffect(() => {
 
    fetch(url)
@@ -24,8 +24,9 @@ useEffect(() => {
   // console.log(data);
 
   // handle Delete
-  const handleDlt = id => {
-
+  const handleDlt = (id, changedDate) => {
+      console.log(changedDate);
+      moment().startOf('day').fromNow();  
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",

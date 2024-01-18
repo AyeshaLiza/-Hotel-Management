@@ -82,7 +82,6 @@ console.log(newDate);
             confirmButtonText: 'Cool'
           })
         }
-
       }
       )
   }
