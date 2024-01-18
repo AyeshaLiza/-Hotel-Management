@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 
 const RoomDetail = () => {
   
- const [roomDetails, setRoomDetails] = useState([]) || []
- const [filteredDetail, setFilteredDetail] = useState([]) || []
+ const [roomDetails, setRoomDetails] = useState() || []
+ const [filteredDetail, setFilteredDetail] = useState() || []
  const {_id} = useParams();
 
  useEffect(() => {

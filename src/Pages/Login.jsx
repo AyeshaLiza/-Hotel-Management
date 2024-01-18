@@ -41,9 +41,9 @@ const Login = () => {
       toast.success('Successfully Logged in!');
 
     } catch (error) {
-      // toast.error(error.message);
       console.log(error.message);
       setLoginError(error.message)
+      // toast.error(error.message);
     }
 
   }

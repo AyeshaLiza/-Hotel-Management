@@ -1,21 +1,18 @@
-import React from 'react';
-import Navbar from './Navbar';
-import parav1 from '../assets/banner/parav1.mp4'
-import { useLocation } from 'react-router-dom';
-import newBanner from '../assets/New folder/newBannner.jpg';
-import img from '../assets/New folder/img.jpg';
-import Plx from 'react-plx';
 
+// import img from '../assets/New folder/img.jpg';
+// import newBanner from '../assets/New folder/newBanner.jpg';
+import newBanner from '../assets/New folder/newBannner.jpg'
+import ban from '../assets/banner/ban.jpg'
 
 const Banner = () => {
   return (
     <>
-   
-      <div className='relative w-full h-[600px]'>
-        <img className='w-full h-[500px]' src={img} alt="" />
-      </div>
-      <div className='text-white absolute left-24 bottom-40 max-w-lg'>
-        <h1 className='text-5xl pb-8 font-semibold'>
+          <img className='w-full h-[500px]' src={ban} alt="" />
+      {/* <div className='relative w-full '>
+        <img className='w-full h-[500px]' src={newBanner} alt="" />
+       <div className=' absolute  opacity- right-6 bottom-14 '>
+      <div className='text-black max-w-lg'>
+      <h1 className='text-5xl pb-8 font-semibold '>
           Experience Tranquility and Elegance
         </h1>
         <p className=''>
@@ -23,6 +20,8 @@ const Banner = () => {
           Indulge in the art of hospitality at Luxe Horizon Hotel, where luxury meets comfort. Nestled in the heart of [City Name], our hotel invites you to a world of sophistication and serenity.
         </p>
       </div>
+      </div></div> */}
+     
     </>
   );
 };

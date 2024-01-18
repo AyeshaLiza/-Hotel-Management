@@ -17,11 +17,6 @@ const Signup = () => {
   console.log(displayName , photoURL, email, password);
   setSignupError('')
 
-if(!/(?=.*[A-Z])(?=.*\W)(?!.* ).{6,}/.test(password)){
-  setSignupError('provide an Uppercase, a special chatacter & atleast 6 digit password')
-  return
-}
-else{
   signUp(  email, password)
   .then(result  =>{
       console.log(result);
@@ -36,7 +31,7 @@ else{
       console.log(error.message);
       setSignupError(error.message);
   })
-}
+
 }
 
 const handleGoogle = () => {

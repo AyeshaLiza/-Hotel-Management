@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 const RoomsCard = ({room}) => {
- const {_id, roomImg, title, price} = room || []
+ const {_id, roomImg, title, price} = room || {}
 
  return (
   <div>

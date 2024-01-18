@@ -27,7 +27,7 @@ const Rooms = () => {
 
 
   if (isError) {
-    return <p>Something Went wrong.. {error}</p>
+    return <p>Something Went wrong..</p>
   }
   return (
     <div>

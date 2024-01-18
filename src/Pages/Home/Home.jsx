@@ -6,6 +6,7 @@ import Banner from '../../Component/Banner';
 import { Helmet } from 'react-helmet';
 import OfferBanner from '../../Component/OfferBanner';
 import NewsLetter from '../../Component/NewsLetter';
+import Review from '../../Component/Review';
 
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
   <OfferBanner></OfferBanner>
   <ImageSlider></ImageSlider>
   <NewsLetter></NewsLetter>
+  <Review></Review>
   </div>
  );
 };

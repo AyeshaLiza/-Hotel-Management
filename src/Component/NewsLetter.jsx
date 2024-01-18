@@ -14,9 +14,9 @@ const NewsLetter = () => {
  return (
   <div>
    <div className='text-xl text-center '>
-   <h1>
+   <h1 className='my-4'>
     Sign up for Our Newsletter</h1>
-   <h1 >
+   <h1 className='mb-4'>
     Be the first to know about our exclusive deals.</h1>
    </div>
    <div className="card flex-shrink-0 w-full max-w-sm mx-auto shadow-2xl border border-amber-500">

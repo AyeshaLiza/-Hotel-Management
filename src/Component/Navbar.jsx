@@ -64,22 +64,11 @@ const Navbar = ({children}) => {
  
 </>
 
-// const location = useLocation()
-// const isHomePage = location.pathname === '/';
-
-
-
  return (
-  <div className='w-full bg-red-900 h-full'>
-    {/* {
-      isHomePage && 
-    <video autoPlay loop muted  className='w-full h-full' style={{objectFit: 'cover' }}> 
-      <source src={parav1} type='video/mp4'/>
-      </video>
-    } */}
-{/* <Banner className={``}></Banner> */}
-<div className="   bg-opacity-40 bg-red-500">
-    <div className="navbar h-28 max-w-5xl bg-black mx-auto">
+  <div className='w-full  h-full'>
+  
+<div className="   bg-opacity-40 ">
+    <div className="navbar h-28 max-w-5xl mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

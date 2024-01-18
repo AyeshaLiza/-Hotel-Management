@@ -1,24 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react';
-import useBooking from '../../Hook/useBooking';
-import useAxios from '../../Hook/useAxios';
-import toast from 'react-hot-toast';
+import { useContext, useEffect, useState } from 'react';
+
 import MyBookingCard from '../../Component/MyBookingCard';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
-import { useMutation } from '@tanstack/react-query';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const MyBooking = () => {
   // const { myBooking } = useBooking()
 const { user } = useContext(AuthContext)
-const url = `http://localhost:5000/api/v1/bookings?email=${user?.email}`
-const [bookings, setBookings] = useState([])
+const url = `http://localhost:5000/api/v1/roomBookings?email=${user?.email}`
+const [bookings, setBookings] = useState()     ||  []
 useEffect(() => {
 
    fetch(url)
    .then(res => res.json())
    .then(data =>{
-    // console.log(data)
+    console.log(data)
     setBookings(data)})
 }, [url])
 
@@ -73,7 +70,7 @@ useEffect(() => {
       </Helmet>
       
       <div className='overflow-x-auto  mx-auto'>
-        <table className="table bg-red-500 min-w-full">
+        <table className="table min-w-full">
           {/* head */}
           <thead className='bg-base-200'>
             <tr>
@@ -96,7 +93,8 @@ useEffect(() => {
                 booking={booking}
                 handleDlt={handleDlt}
 
-              ></MyBookingCard>)
+              ></MyBookingCard>
+            )
             }
 
           </tbody>
