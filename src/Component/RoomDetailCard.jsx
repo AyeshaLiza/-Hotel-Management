@@ -21,11 +21,10 @@ const RoomDetailCard = ({ filtered }) => {
   const { pricePerNight, roomSize, specialOffers, descr, } = detail || {}
   const { offer1, offer2 } = specialOffers || {}
   const [seats, setSeat] = useState([]) 
-  const [summary, setSummary] = useState([]) 
   const [newDate, setNewDate] = useState(new Date());
   const { user } = useContext(AuthContext)
-
-    // Room Seat fetching
+  
+  // Room Seat fetching
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/seats`)
       .then(res => res.json())
@@ -34,29 +33,39 @@ const RoomDetailCard = ({ filtered }) => {
         setSeat(data)
       }
       )
-  }, [])
-
-  // Date Change
-  const handleDateSelect = selectedDate =>{
-        // console.log(selectedDate);
-  }
-  const handleDateChange = selectedDate =>{
-        console.log(selectedDate);
-        setNewDate(selectedDate)
-  }
-const changedDate = newDate?.toLocaleDateString()
-
-  // making Room Summary
-  useEffect(() => {
-    const email = user?.email
-    const name = user?.displayName
-    const bookingInfo = {
-      email, name, changedDate, title, roomImg, pricePerNight, roomSize, descr,
+    }, [])
+    
+    // Date Change
+    const handleDateSelect = selectedDate =>{
+      // console.log(selectedDate);
     }
-    console.log(newDate);
+    const handleDateChange = selectedDate =>{
+      console.log(selectedDate);
+      setNewDate(selectedDate)
+    }
+    const changedDate = newDate?.toLocaleDateString()
+    
+    const [summary, setSummary] = useState({
+      email : user?.email,
+      name : user?.displayName,
+      updatedDate: changedDate,
+      roomTitle: title,
+      roomImage: roomImg,
+      roomPrice: pricePerNight,
+      roomSize: roomSize,
+      roomDetail: descr
+    }) 
+    // making Room Summary
+  //   useEffect(() => {
+  //   const email = user?.email
+  //   const name = user?.displayName
+  //   const bookingInfo = {
+  //     email, name, changedDate, title, roomImg, pricePerNight, roomSize, descr,
+  //   }
+  //   console.log(newDate);
 
-    setSummary(bookingInfo)
-  }, [])
+  //   setSummary(bookingInfo)
+  // }, [])
 
   // handle Confirm
   const handleConfirm = () => {
