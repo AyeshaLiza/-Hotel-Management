@@ -6,8 +6,8 @@ import { Helmet } from 'react-helmet';
 
 const Signup = () => {
  const [sigupError, setSignupError] = useState([]) || []
- const {signUp, googleSignIn} = useContext(AuthContext)
- const handleFormSubmit = e => {
+ const {signUp, googleSignIn, profileInfo} = useContext(AuthContext)
+ const handleFormSubmit = async e => {
 
   e.preventDefault();
   const displayName  = e.target.name.value;
@@ -17,21 +17,23 @@ const Signup = () => {
   console.log(displayName , photoURL, email, password);
   setSignupError('')
 
-  signUp(  email, password)
-  .then(result  =>{
+ try {
+  await signUp(  email, password)
+   .then(result  =>{
       console.log(result);
     const user  = {
          email, password
     }
     console.log(user);
   })
-  
-  
-  .catch((error) =>{
-      console.log(error.message);
-      setSignupError(error.message);
-  })
 
+    // UserName & Profile 
+    const updateProfile = await profileInfo(displayName, photoURL)
+    console.log(updateProfile);
+ } catch (error) {
+  console.log(error.message);
+      setSignupError(error.message);
+ }
 }
 
 const handleGoogle = () => {

@@ -39,6 +39,12 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   }
 
+  const profileInfo = (name, photo)=>{
+    return updateProfile(auth.currentUser,{
+      displayName: name,
+      photoURL: photo
+    })
+  }
   const AuthInfo = {
     user,
     loading,
@@ -46,7 +52,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     googleSignIn,
     logOut,
-    updateProfile
+    profileInfo
   }
   return <AuthContext.Provider value={AuthInfo}>
     {children}

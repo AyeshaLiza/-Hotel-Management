@@ -1,42 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import useRoom from '../Router/Booking/useRoom';
+import React from 'react';
 
-const RoomSummary = () => {
- const { room } = useRoom()
- const { data } = room   ||  {}
-//  console.log(room);
-const [roomSummary, setRoomSummary] = useState() || []
+const RoomSummary = ({my_modal_5, changedDate, summary, handleConfirm}) => {
 
+  return (
+    <div>
+  <dialog id={my_modal_5} className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box">
+              <form method="dialog">
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+                {
+                  summary && <>
 
- const {title, roomImg, detail} = data || {}
- const {descr, pricePerNight, discount} = detail || {}
- useEffect(() => {
-  fetch(`http://localhost:5000/api/v1/roomBookings`)
-   .then(res => res.json())
-   .then(data => {
-    console.log(data)
-    setRoomSummary(data)
-   }
-   )
- }, [])
- return (
-  <div>
-{/* <div className="card w-96 bg-neutral text-neutral-content">
-  <div className="card-body items-center text-center">
-    <h2 className="card-title text-white">{title}</h2>
-      <div>
-      <p className="">{pricePerNight}</p>
-      <p className="">{discount}</p>
-      </div>
-    <p>{descr}</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-ghost">Deny</button>
+                    <h1>Your Room: {summary?.roomTitle}</h1>
+                    <h1>Date: {changedDate}</h1>
+
+                    <h3 className="font-bold text-lg">{summary?.price}</h3>
+                    <p className="py-4">{summary?.roomDetail}</p>
+
+                  </>
+                }
+                <div className="modal-action">
+                  <form method="dialog" className="">
+                    <button onClick={handleConfirm} className="btn">Comfirm Booking</button>
+                  </form>
+                </div>
+
+              </div>
+            </dialog>      
     </div>
-  </div>
-</div> */}
-
-  </div>
- );
+  );
 };
 
 export default RoomSummary;

@@ -50,7 +50,10 @@ const Login = () => {
   const handleGoogle  = ()  =>{
   try {
      googleSignIn()
-    toast.success('Google Login successfull!');
+     .then((result)=>{
+
+       toast.success('Google Login successfull!');
+     })
   } catch (error) {
     toast.error(error.message);
     setLoginError(error.message)

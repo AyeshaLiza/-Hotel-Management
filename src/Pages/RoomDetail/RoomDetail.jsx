@@ -26,11 +26,10 @@ const   findRoomDetail = roomDetails?.filter((roomDtail) => roomDtail._id == _id
  }, [_id, roomDetails])
  
  return (
-  <div>
 
-   <div className='mx-auto my-5'>
+   <div className='mx-auto '>
   
-    <div className=' my-5'>
+    <div className=''>
      {
       filteredDetail?.map((filtered) => <>
       
@@ -40,7 +39,7 @@ const   findRoomDetail = roomDetails?.filter((roomDtail) => roomDtail._id == _id
      }
     </div>
    </div>
-  </div>
+  
  );
 };
 
