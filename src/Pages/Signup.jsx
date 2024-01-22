@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Helmet } from 'react-helmet';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 
 const Signup = () => {
@@ -20,16 +22,23 @@ const Signup = () => {
  try {
   await signUp(  email, password)
    .then(result  =>{
-      console.log(result);
-    const user  = {
-         email, password
-    }
-    console.log(user);
+      console.log(result.user.email);
+    
+    
+      axios.post('http://localhost:5000/api/v1/auth/access-token',result?.user?.email, {
+       withCredentials: true
+      })
+      .then(res =>{
+       console.log('token response', res.data);
+       toast.success('Successfully signup');
+      }) 
+     
   })
-
     // UserName & Profile 
     const updateProfile = await profileInfo(displayName, photoURL)
     console.log(updateProfile);
+
+
  } catch (error) {
   console.log(error.message);
       setSignupError(error.message);

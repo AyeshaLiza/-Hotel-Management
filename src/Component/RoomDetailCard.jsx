@@ -18,13 +18,14 @@ import RoomSummary from "./RoomSummary";
 import Review from "./Review";
 
 const RoomDetailCard = ({ filtered }) => {
+  const { user } = useContext(AuthContext)
 
   const { _id, roomImg, detail, title, availableSeat } = filtered || {}
   const { pricePerNight, roomSize, specialOffers, descr, } = detail || {}
   const { offer1, offer2 } = specialOffers || {}
   const [seats, setSeat] = useState([])
+  const [showReview, setShowReview] = useState('')
   const [newDate, setNewDate] = useState(new Date());
-  const { user } = useContext(AuthContext)
 
   // Room Seat fetching
   useEffect(() => {
@@ -70,7 +71,7 @@ const RoomDetailCard = ({ filtered }) => {
     })
       .then(res => res.json())
       .then(data => {
-        
+        setShowReview(data)
         if (data.modifiedCount) {
           Swal.fire({
             title: 'success!',
@@ -79,6 +80,7 @@ const RoomDetailCard = ({ filtered }) => {
             confirmButtonText: 'Cool'
           })
         }
+
       }
       )
   }
@@ -96,7 +98,7 @@ const RoomDetailCard = ({ filtered }) => {
               <h2 className=" "> <span>Room Size: {roomSize}</span></h2>
           <h2 className=""> {pricePerNight}/Night</h2>
              
-
+          {showReview  &&  <Review></Review>}
               
             </div>
             <div className="space-y-3">
@@ -110,6 +112,7 @@ const RoomDetailCard = ({ filtered }) => {
             onSelect={handleDateSelect} //when day is clicked
             onChange={handleDateChange} //only when value has changed
           />
+        
 
             </div>
           </div>

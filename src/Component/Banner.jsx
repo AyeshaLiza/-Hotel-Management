@@ -2,25 +2,33 @@
 // import img from '../assets/New folder/img.jpg';
 // import newBanner from '../assets/New folder/newBanner.jpg';
 import newBanner from '../assets/New folder/newBannner.jpg'
-import ban from '../assets/banner/ban.jpg'
+import banner2 from '../assets/banner/banner2.jpg'
 
+import { Parallax } from 'react-parallax';
 const Banner = () => {
   return (
     <>
-          <img className='w-full h-[500px]' src={ban} alt="" />
-      {/* <div className='relative w-full '>
-        <img className='w-full h-[500px]' src={newBanner} alt="" />
-       <div className=' absolute  opacity- right-6 bottom-14 '>
-      <div className='text-black max-w-lg'>
-      <h1 className='text-5xl pb-8 font-semibold '>
-          Experience Tranquility and Elegance
+
+
+<Parallax
+        // blur={{ min: -15, max: 15 }}
+        bgImage={banner2}
+        bgImageAlt="the dog"
+        strength={-500}
+    >
+    <div className='max-w-xl my-60  mx-auto'> 
+    <h1 className='text-5xl pb-6 font-semibold '>
+          {/* Experience Tranquility and Elegance */}
         </h1>
         <p className=''>
+{/* 
+Indulge in the art of hospitality at Luxe Horizon Hotel, where luxury meets comfort. Nestled in the heart of [City Name], our hotel invites you to a world of sophistication and serenity. */}
+</p>
+    </div>
+        <div style={{ height: '100px' }} />
+    </Parallax>
 
-          Indulge in the art of hospitality at Luxe Horizon Hotel, where luxury meets comfort. Nestled in the heart of [City Name], our hotel invites you to a world of sophistication and serenity.
-        </p>
-      </div>
-      </div></div> */}
+
      
     </>
   );

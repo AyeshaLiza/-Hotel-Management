@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import  { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import HotelLogo from '../assets/logo/hotelLogo.jpg'
 import { AuthContext } from '../Provider/AuthProvider';
-import Banner from './Banner';
-import parav1 from '../assets/banner/parav1.mp4'
 
 
 const Navbar = ({children}) => {
