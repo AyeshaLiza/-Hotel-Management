@@ -8,7 +8,7 @@ import {
 } from "phosphor-react";
 
 import { Button, Card } from "keep-react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import SeatCard from "./SeatCard";
 import DatePicker from "react-datepicker";
@@ -19,6 +19,7 @@ import Review from "./Review";
 
 const RoomDetailCard = ({ filtered }) => {
   const { user } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const { _id, roomImg, detail, title, availableSeat } = filtered || {}
   const { pricePerNight, roomSize, specialOffers, descr, } = detail || {}
@@ -117,13 +118,9 @@ const RoomDetailCard = ({ filtered }) => {
             </div>
           </div>
          
-
-          <div className="card-actions justify-end">
-            <button className="btn btn-outline" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Room</button>
-           
-
-
-          </div>
+ <div className="card-actions justify-end">
+          <button className="btn btn-outline " onClick={() => {user?.email ? document.getElementById('my_modal_5').showModal()  : navigate('/login')}}>Book Room</button>
+        </div>
 
         </div>
       </div>
@@ -133,7 +130,8 @@ const RoomDetailCard = ({ filtered }) => {
       <div className="grid lg:grid-cols-3 my-9 md:grid-cols-2 max-w-[85%] mx-auto grid-cols-1 gap-3 ">
         {seats?.map(seat => <SeatCard key={seat._id} seat={seat}></SeatCard>)}
       </div>
-      <RoomSummary my_modal_5={'my_modal_5'} summary={summary} changedDate={changedDate} handleConfirm={handleConfirm}></RoomSummary>
+       <RoomSummary my_modal_5={'my_modal_5'} summary={summary} changedDate={changedDate} handleConfirm={handleConfirm}></RoomSummary>
+       
     </div>
   );
 };

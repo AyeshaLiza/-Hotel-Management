@@ -1,7 +1,4 @@
 
-// import img from '../assets/New folder/img.jpg';
-// import newBanner from '../assets/New folder/newBanner.jpg';
-import newBanner from '../assets/New folder/newBannner.jpg'
 import banner2 from '../assets/banner/banner2.jpg'
 
 import { Parallax } from 'react-parallax';

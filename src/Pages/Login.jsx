@@ -14,6 +14,7 @@ const Login = () => {
   const { signIn, logOut, googleSignIn } = useContext(AuthContext)
   // const axios = useAxios()
   // const url = 'http://localhost:5000/api/v1/auth/access-token'
+  const from = location?.state?.from?.pathname  ||  '/'
 
   
   const handleFormSubmit =async (e) => {
@@ -31,7 +32,8 @@ const Login = () => {
       // console.log(loggedInUser)
      .then((res) =>{
           console.log(res)
-        navigate(location?.state ? location?.state : '/')
+      navigate(from ,{replace: true})
+
       })
 
       // const res = await axios.post(url, {loggedInUser})

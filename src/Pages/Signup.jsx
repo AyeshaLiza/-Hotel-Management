@@ -9,6 +9,7 @@ import axios from 'axios';
 const Signup = () => {
  const [sigupError, setSignupError] = useState([]) || []
  const {signUp, googleSignIn, profileInfo} = useContext(AuthContext)
+
  const handleFormSubmit = async e => {
 
   e.preventDefault();
@@ -20,12 +21,13 @@ const Signup = () => {
   setSignupError('')
 
  try {
-  await signUp(  email, password)
-   .then(result  =>{
-      console.log(result.user.email);
-    
-    
-      axios.post('http://localhost:5000/api/v1/auth/access-token',result?.user?.email, {
+  const result = await  signUp(  email, password)
+  
+      // const loggedInUser = user.user.email;
+    // console.log(loggedInUser)
+    // const res = await axios.post(url, {loggedInUser})
+    //   console.log(res);
+   await axios.post('http://localhost:5000/api/v1/auth/access-token',result?.user?.email, {
        withCredentials: true
       })
       .then(res =>{
@@ -33,12 +35,10 @@ const Signup = () => {
        toast.success('Successfully signup');
       }) 
      
-  })
+  
     // UserName & Profile 
     const updateProfile = await profileInfo(displayName, photoURL)
     console.log(updateProfile);
-
-
  } catch (error) {
   console.log(error.message);
       setSignupError(error.message);
@@ -49,6 +49,13 @@ const handleGoogle = () => {
   googleSignIn()
   .then((result) => {
     console.log(result.user);
+    axios.post('http://localhost:5000/api/v1/auth/access-token',result?.user?.email, {
+       withCredentials: true
+      })
+      .then(res =>{
+       console.log('token response', res.data);
+       toast.success('Successfully signup');
+      }) 
   })
 }
 
