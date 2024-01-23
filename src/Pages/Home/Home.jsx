@@ -22,7 +22,7 @@ const Home = () => {
   <OfferBanner></OfferBanner>
   <ImageSlider></ImageSlider>
   <NewsLetter></NewsLetter>
-  <Review></Review>
+
   </div>
  );
 };

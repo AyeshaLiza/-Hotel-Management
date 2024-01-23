@@ -7,10 +7,9 @@ import ReactTab from './ReactTab';
 const FeaturedRoom = () => {
 const [featuredRoom, setFeaturedRoom] = useState([])   || []
 useEffect(() =>{
- fetch('http://localhost:5000/api/v1/room')
+ fetch('http://localhost:8000/api/v1/room')
  .then(res => res.json())
  .then(data => {
-  console.log(data)
   setFeaturedRoom(data)
   
  }

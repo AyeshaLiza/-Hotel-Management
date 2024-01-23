@@ -30,7 +30,7 @@ const RoomDetailCard = ({ filtered }) => {
 
   // Room Seat fetching
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/seats`)
+    fetch(`http://localhost:8000/api/v1/seats`)
       .then(res => res.json())
       .then(data => {
         setSeat(data)
@@ -63,7 +63,7 @@ const RoomDetailCard = ({ filtered }) => {
     const newData = { ...summary, changedDate }
     console.log(newData);
     //  post to Booking Collection
-    fetch(`http://localhost:5000/api/v1/roomBookings/${_id}`, {
+    fetch(`http://localhost:8000/api/v1/roomBookings/${_id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'
@@ -99,7 +99,7 @@ const RoomDetailCard = ({ filtered }) => {
               <h2 className=" "> <span>Room Size: {roomSize}</span></h2>
           <h2 className=""> {pricePerNight}/Night</h2>
              
-          {showReview  &&  <Review></Review>}
+          {showReview  &&  <Review title={title}></Review>}
               
             </div>
             <div className="space-y-3">

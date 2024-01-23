@@ -15,7 +15,7 @@ const Update = () => {
   const email  = form.email.value;
   const date  = form.date.value;
   const updateBooking  = {name, email, date}
-  fetch(`http://localhost:5000/api/v1/bookings/${id}`, {
+  fetch(`http://localhost:8000/api/v1/bookings/${id}`, {
    method: 'PUT',
    headers: {
      'content-type': 'application/json'

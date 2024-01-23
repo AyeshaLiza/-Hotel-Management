@@ -4,7 +4,7 @@ import Rating from 'react-rating';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
-const Review = () => {
+const Review = ({title}) => {
   const { user } = useContext(AuthContext)
 
   const [textareaValue, setTextareaValue] = useState()
@@ -18,11 +18,12 @@ const Review = () => {
   }
   const handleSubmit = () => {
     const reviewData = {
+      roomTitle: title,
       reviewerName: user?.displayName,
       ratingValue: ratingValue,
       comment: textareaValue,
     }
-    fetch('http://localhost:5000/api/v1/reviews', {
+    fetch('http://localhost:8000/api/v1/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

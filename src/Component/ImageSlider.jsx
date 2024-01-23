@@ -4,7 +4,7 @@ import ImgSliderCard from './ImgSliderCard';
 const ImageSlider = () => {
 //  const [imgSlider, setImgSlider] = useState([])   || []
 //  useEffect(() =>{
-//   fetch('http://localhost:5000/room')
+//   fetch('http://localhost:8000/room')
 //   .then(res => res.json())
 //   .then(data => {
 //    console.log(data)

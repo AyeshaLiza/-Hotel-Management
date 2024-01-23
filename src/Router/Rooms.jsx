@@ -20,7 +20,7 @@ const Rooms = () => {
     return res;
   }
   const { data: myRooms,
-    isLoading, isError, error, isFetching, refetch } = useQuery({
+    isLoading, isError, } = useQuery({
       queryKey: ['rooms', priceRange],
       queryFn: getRooms
     })

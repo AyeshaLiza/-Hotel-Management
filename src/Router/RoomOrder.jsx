@@ -24,7 +24,7 @@ const RoomOrder = () => {
       email, name, date, title, roomImg, pricePerNight, discount, roomSize, availability, descr
     }
     // console.log(roomOrder);
-    fetch('http://localhost:5000/api/v1/bookings', {
+    fetch('http://localhost:8000/api/v1/bookings', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

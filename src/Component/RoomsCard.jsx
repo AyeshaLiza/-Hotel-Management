@@ -1,8 +1,9 @@
 
 import { Link } from 'react-router-dom';
+import ShowReview from './ShowReview';
 
 const RoomsCard = ({room}) => {
- const {_id, roomImg, title, price} = room || {}
+ const {_id, roomImg, title} = room || {}
 
  return (
   <div>
@@ -11,6 +12,7 @@ const RoomsCard = ({room}) => {
   <figure><img src={roomImg} alt="Room" /></figure>
   <div className="card-body">
     <h2 className="card-title">{title}</h2>
+    <ShowReview></ShowReview>
  
   </div>
 </div>

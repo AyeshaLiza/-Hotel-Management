@@ -9,7 +9,7 @@ import moment from 'moment';
 const MyBooking = () => {
   // const { myBooking } = useBooking()
 const { user } = useContext(AuthContext)
-const url = `http://localhost:5000/api/v1/roomBookings?email=${user?.email}`
+const url = `http://localhost:8000/api/v1/roomBookings?email=${user?.email}`
 const [bookings, setBookings] = useState([])     
 useEffect(() => {
 
@@ -40,7 +40,7 @@ useEffect(() => {
       .then((result) => {
         if (result.isConfirmed) {
           console.log('deleted');
-          fetch(`http://localhost:5000/api/v1/bookings/${id}`, {
+          fetch(`http://localhost:8000/api/v1/bookings/${id}`, {
             method: 'DELETE'
           })
             .then(res => res.json())

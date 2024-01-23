@@ -21,13 +21,13 @@ const Signup = () => {
   setSignupError('')
 
  try {
-  const result = await  signUp(  email, password)
+  const result =   signUp(  email, password)
   
       // const loggedInUser = user.user.email;
     // console.log(loggedInUser)
     // const res = await axios.post(url, {loggedInUser})
     //   console.log(res);
-   await axios.post('http://localhost:5000/api/v1/auth/access-token',result?.user?.email, {
+    axios.post('http://localhost:8000/api/v1/auth/access-token',result?.user?.email, {
        withCredentials: true
       })
       .then(res =>{
@@ -49,7 +49,7 @@ const handleGoogle = () => {
   googleSignIn()
   .then((result) => {
     console.log(result.user);
-    axios.post('http://localhost:5000/api/v1/auth/access-token',result?.user?.email, {
+    axios.post('http://localhost:8000/api/v1/auth/access-token',result?.user?.email, {
        withCredentials: true
       })
       .then(res =>{

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+
 import dining from '../assets/featured/dining.jpg'
 import dining2 from '../assets/featured/dining2.jpg'
 import naure from '../assets/featured/naure.jpg'

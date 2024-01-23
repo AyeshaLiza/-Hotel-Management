@@ -5,7 +5,7 @@ const BookRoom = () => {
  const [featuredRoom, setFeaturedRoom] = useState([])   || []
  const {id} = useParams()
 useEffect(() =>{
- fetch(`http://localhost:5000/room${id}`)
+ fetch(`http://localhost:8000/room${id}`)
  .then(res => res.json())
  .then(data => {
  console.log(data)
