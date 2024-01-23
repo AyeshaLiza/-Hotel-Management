@@ -91,7 +91,7 @@ const RoomDetailCard = ({ filtered }) => {
          
           {loading ?  <span className="loading loading-ring loading-md"></span>  :
           <div>
-          {availableSeat === 0 ? 'No Available Seat' :  <h2 className="text-lg card-title "> <span>Available Seat: {availableSeat}</span></h2>}
+          {availableSeat === 0 ? <p className="font-semibold">No Available Seat</p> :  <h2 className="text-lg card-title "> <span>Available Seat: {availableSeat}</span></h2>}
           </div>  
           }
           
