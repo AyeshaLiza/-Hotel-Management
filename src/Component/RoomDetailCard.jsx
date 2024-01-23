@@ -1,16 +1,7 @@
-import {
-  ArrowsOutSimple,
-  Bed,
-  Heart,
-  MapPinLine,
-  Shower,
-  Users,
-} from "phosphor-react";
 
-import { Button, Card } from "keep-react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import SeatCard from "./SeatCard";
+
+import {  useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -26,7 +17,6 @@ const RoomDetailCard = ({ filtered }) => {
   const { _id, roomImg, detail, title, availableSeat } = filtered || {}
   const { pricePerNight, roomSize, specialOffers, descr, } = detail || {}
   const { offer1, offer2 } = specialOffers || {}
-  const [seats, setSeat] = useState([])
   const [showReview, setShowReview] = useState('')
   const [newDate, setNewDate] = useState(new Date());
 
