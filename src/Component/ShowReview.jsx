@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const ShowReview = () => {
+const ShowReview = ({title}) => {
  const [reviews, setReviews] = useState([])
- const {id} =useParams()
+//  const {id} =useParams()
  useEffect(()=>{
-  fetch(`http://localhost:8000/api/v1/reviews/${id}`)
+  fetch(`http://localhost:8000/api/v1/reviews?title=${title}`)
   .then(res => res.json())
- .then(data => 
-{  console.log(data);
+ .then(data => {
+  console.log(data);
   setReviews(data)}
   )
  },[])
  return (
   <div>
-     {reviews.length}
+   <p>
+     {reviews?.length >0  && <p>{reviews.length} reviews</p> } </p>
   </div>
  );
 };

@@ -12,7 +12,7 @@ const RoomsCard = ({room}) => {
   <figure><img src={roomImg} alt="Room" /></figure>
   <div className="card-body">
     <h2 className="card-title">{title}</h2>
-    <ShowReview></ShowReview>
+    <ShowReview title={title}></ShowReview>
  
   </div>
 </div>

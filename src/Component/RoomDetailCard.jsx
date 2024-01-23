@@ -16,10 +16,12 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import RoomSummary from "./RoomSummary";
 import Review from "./Review";
+import ShowReview from "./ShowReview";
 
 const RoomDetailCard = ({ filtered }) => {
-  const { user } = useContext(AuthContext)
+  const { user, loading } = useContext(AuthContext)
   const navigate = useNavigate()
+  // const [loading, setLoading] = useState(false)
 
   const { _id, roomImg, detail, title, availableSeat } = filtered || {}
   const { pricePerNight, roomSize, specialOffers, descr, } = detail || {}
@@ -28,16 +30,8 @@ const RoomDetailCard = ({ filtered }) => {
   const [showReview, setShowReview] = useState('')
   const [newDate, setNewDate] = useState(new Date());
 
-  // Room Seat fetching
-  useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/seats`)
-      .then(res => res.json())
-      .then(data => {
-        setSeat(data)
-      }
-      )
-  }, [])
-
+ 
+  
   // Date Change
   const handleDateSelect = selectedDate => {
   }
@@ -73,7 +67,8 @@ const RoomDetailCard = ({ filtered }) => {
       .then(res => res.json())
       .then(data => {
         setShowReview(data)
-        if (data.modifiedCount) {
+        
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: 'success!',
             text: 'Room Booked Successfully',
@@ -99,12 +94,17 @@ const RoomDetailCard = ({ filtered }) => {
               <h2 className=" "> <span>Room Size: {roomSize}</span></h2>
           <h2 className=""> {pricePerNight}/Night</h2>
              
-          {showReview  &&  <Review title={title}></Review>}
               
             </div>
             <div className="space-y-3">
            
-          <h2 className="text-lg card-title "> <span>Available Seat: {availableSeat}</span></h2>
+         
+          {loading ?  <span className="loading loading-ring loading-md"></span>  :
+          <div>
+          {availableSeat === 0 ? 'No Available Seat' :  <h2 className="text-lg card-title "> <span>Available Seat: {availableSeat}</span></h2>}
+          </div>  
+          }
+          
 
           <p className="card-title py-1 card-actions">Choose your date: {newDate?.toLocaleDateString()}</p>
           <DatePicker
@@ -126,10 +126,16 @@ const RoomDetailCard = ({ filtered }) => {
       </div>
       <p className="px-14 mx-auto ">{descr}</p>
 
+              <div className="w-[700px] ml-20 my-5" >
+                <hr />
+              <div className="rating rating-md ">
+              <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400 " checked /> <h1 className="px-2">5 Star</h1>
+              </div>
+            <ShowReview></ShowReview>
+          {showReview  &&  <Review title={title}></Review>}
+          </div>
 
-      <div className="grid lg:grid-cols-3 my-9 md:grid-cols-2 max-w-[85%] mx-auto grid-cols-1 gap-3 ">
-        {seats?.map(seat => <SeatCard key={seat._id} seat={seat}></SeatCard>)}
-      </div>
+  
        <RoomSummary my_modal_5={'my_modal_5'} summary={summary} changedDate={changedDate} handleConfirm={handleConfirm}></RoomSummary>
        
     </div>

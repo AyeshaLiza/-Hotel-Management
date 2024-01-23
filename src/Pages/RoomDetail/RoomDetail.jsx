@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import RoomDetailCard from '../../Component/RoomDetailCard';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 const RoomDetail = () => {
   
@@ -18,9 +20,12 @@ const RoomDetail = () => {
    )
  }, [])
 
+
+
+
+
  useEffect(() => {
 const   findRoomDetail = roomDetails?.filter((roomDtail) => roomDtail._id == _id)
-  // console.log(findRoomDetail);
   setFilteredDetail(findRoomDetail)
 
  }, [_id, roomDetails])

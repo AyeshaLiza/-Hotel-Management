@@ -18,7 +18,7 @@ const Review = ({title}) => {
   }
   const handleSubmit = () => {
     const reviewData = {
-      roomTitle: title,
+      title: title,
       reviewerName: user?.displayName,
       ratingValue: ratingValue,
       comment: textareaValue,
